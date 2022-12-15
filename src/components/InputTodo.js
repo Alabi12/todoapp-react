@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { FaPlusCircle } from 'react-icons/fa';
 
 class InputTodo extends Component {
   constructor(props) {
@@ -42,8 +43,10 @@ class InputTodo extends Component {
           name="title"
           value={title}
         />
-        <button type="button" className="input-submit">
-          Submit
+        <button type="submit" className="input-submit">
+          <FaPlusCircle
+            style={{ color: '#0c2c2c', fontSize: '18px', margin: '2px' }}
+          />
         </button>
       </form>
     );
