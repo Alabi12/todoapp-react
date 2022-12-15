@@ -1,3 +1,4 @@
+/* eslint-disable react/sort-comp */
 import React, { Component } from 'react';
 import { FaTrash } from 'react-icons/fa';
 import PropTypes from 'prop-types';
@@ -25,6 +26,10 @@ export default class TodoItem extends Component {
     }
   };
 
+  componentWillUnmount() {
+    console.log('Cleaning up...');
+  }
+
   render() {
     const {
       todo, handleChangeProps, deleteTodoProps, setUpdate,
@@ -49,7 +54,7 @@ export default class TodoItem extends Component {
     }
 
     // destruction
-    const { completed, id, title } = todo;
+    // const { completed, id, title } = todo;
 
     return (
       <li className={styles.item}>
@@ -57,20 +62,20 @@ export default class TodoItem extends Component {
           <input
             type="checkbox"
             className={styles.checkbox}
-            checked={completed}
-            onChange={() => handleChangeProps(id)}
+            checked={todo.completed}
+            onChange={() => handleChangeProps(todo.id)}
           />
           <button type="button" onClick={() => deleteTodoProps(todo.id)}>
             <FaTrash />
           </button>
-          <span style={todo.completed ? completedStyle : null}>{title}</span>
+          <span style={todo.completed ? completedStyle : null}>{todo.title}</span>
         </div>
         <input
           style={editMode}
           type="text"
           className={styles.textInput}
-          value={title}
-          onChange={(e) => setUpdate(e.target.value, id)}
+          value={todo.title}
+          onChange={(e) => setUpdate(e.target.value, todo.id)}
           onKeyDown={this.handleUpdatedDone}
         />
       </li>
