@@ -66,7 +66,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](https://alabi12.github.io/react-todo-app/)
+- [Live Demo Link]()
 
 
 <!-- GETTING STARTED -->
